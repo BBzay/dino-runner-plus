@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.local
+.vite/
+*.tsbuildinfo
+.ai-manager/
+.claude-session
+LOG.md
+TASKS.md
