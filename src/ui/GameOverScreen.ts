@@ -42,32 +42,32 @@ export class GameOverScreen {
 
     this.titleEl = document.createElement('div');
     this.titleEl.textContent = 'GAME OVER';
-    this.titleEl.style.cssText = 'font-size: 36px; font-weight: bold; color: #FF5722; margin-bottom: 16px;';
+    this.titleEl.style.cssText = 'font-size: clamp(22px, 6vw, 36px); font-weight: bold; color: #FF5722; margin-bottom: clamp(8px, 2vw, 16px);';
     content.appendChild(this.titleEl);
 
     this.scoreEl = document.createElement('div');
-    this.scoreEl.style.cssText = 'font-size: 24px; font-weight: bold; color: #fff; margin-bottom: 8px;';
+    this.scoreEl.style.cssText = 'font-size: clamp(16px, 4vw, 24px); font-weight: bold; color: #fff; margin-bottom: 6px;';
     content.appendChild(this.scoreEl);
 
     this.coinsEl = document.createElement('div');
-    this.coinsEl.style.cssText = 'font-size: 18px; color: #FFD700; margin-bottom: 6px;';
+    this.coinsEl.style.cssText = 'font-size: clamp(13px, 3vw, 18px); color: #FFD700; margin-bottom: 4px;';
     content.appendChild(this.coinsEl);
 
     this.comboEl = document.createElement('div');
-    this.comboEl.style.cssText = 'font-size: 18px; color: #FF9800; margin-bottom: 12px;';
+    this.comboEl.style.cssText = 'font-size: clamp(13px, 3vw, 18px); color: #FF9800; margin-bottom: 8px;';
     content.appendChild(this.comboEl);
 
     this.newHighEl = document.createElement('div');
     this.newHighEl.textContent = 'NEW HIGH SCORE!';
     this.newHighEl.style.cssText = `
-      font-size: 20px; font-weight: bold; color: #FFC107;
-      margin-bottom: 8px; display: none;
+      font-size: clamp(14px, 3.5vw, 20px); font-weight: bold; color: #FFC107;
+      margin-bottom: 6px; display: none;
       animation: pulse 1s infinite;
     `;
     content.appendChild(this.newHighEl);
 
     this.highScoreEl = document.createElement('div');
-    this.highScoreEl.style.cssText = 'font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 20px;';
+    this.highScoreEl.style.cssText = 'font-size: clamp(10px, 2.5vw, 14px); color: rgba(255,255,255,0.6); margin-bottom: clamp(10px, 3vw, 20px);';
     content.appendChild(this.highScoreEl);
 
     this.restartHintEl = document.createElement('div');

@@ -25,7 +25,7 @@ export class MenuScreen {
     this.titleEl = document.createElement('div');
     this.titleEl.innerHTML = `
       <span style="
-        font-size: 42px; font-weight: bold;
+        font-size: clamp(24px, 6vw, 42px); font-weight: bold;
         background: linear-gradient(90deg, #4CAF50, #FFC107, #FF5722);
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -33,7 +33,7 @@ export class MenuScreen {
         filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
       ">DINO RUNNER</span>
       <span style="
-        font-size: 18px; font-weight: bold; color: #FF5722;
+        font-size: clamp(12px, 3vw, 18px); font-weight: bold; color: #FF5722;
         margin-left: 8px; vertical-align: super;
       ">PLUS</span>
     `;
@@ -52,8 +52,8 @@ export class MenuScreen {
     // Character cards row
     this.charCards = document.createElement('div');
     this.charCards.style.cssText = `
-      display: flex; gap: 10px; align-items: center;
-      margin-bottom: 12px;
+      display: flex; gap: clamp(4px, 1.5vw, 10px); align-items: center;
+      margin-bottom: 12px; max-width: 100%; padding: 0 8px;
     `;
     this.container.appendChild(this.charCards);
 
@@ -116,13 +116,13 @@ export class MenuScreen {
 
       const card = document.createElement('div');
       card.style.cssText = `
-        width: 80px; height: 90px; border-radius: 8px;
+        width: clamp(52px, 12vw, 80px); height: clamp(60px, 14vw, 90px); border-radius: 8px;
         background: ${isSelected ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.05)'};
         border: ${isSelected ? `2px solid ${char.color}` : '1px solid rgba(255,255,255,0.1)'};
         opacity: ${dist === 0 ? 1 : 0.5};
         display: flex; flex-direction: column; align-items: center;
         justify-content: center; position: relative; transition: all 0.2s;
-        cursor: pointer; pointer-events: auto;
+        cursor: pointer; pointer-events: auto; flex-shrink: 0;
       `;
       card.addEventListener('click', () => {
         this.selectedIndex = i;

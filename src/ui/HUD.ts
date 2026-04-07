@@ -28,22 +28,22 @@ export class HUD {
 
     // Score (top right)
     this.scoreEl = this.makeEl('div', `
-      position: absolute; top: 10px; right: 20px;
-      font-size: 20px; font-weight: bold; color: #fff;
+      position: absolute; top: 6px; right: 12px;
+      font-size: clamp(14px, 3vw, 20px); font-weight: bold; color: #fff;
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     `);
 
     // High score
     this.highScoreEl = this.makeEl('div', `
-      position: absolute; top: 34px; right: 20px;
-      font-size: 12px; color: rgba(255,255,255,0.6);
+      position: absolute; top: clamp(24px, 5vw, 34px); right: 12px;
+      font-size: clamp(9px, 2vw, 12px); color: rgba(255,255,255,0.6);
       text-shadow: 0 1px 2px rgba(0,0,0,0.5);
     `);
 
     // Coins (top left)
     this.coinsEl = this.makeEl('div', `
-      position: absolute; top: 10px; left: 20px;
-      font-size: 16px; font-weight: bold; color: #FFD700;
+      position: absolute; top: 6px; left: 12px;
+      font-size: clamp(12px, 2.5vw, 16px); font-weight: bold; color: #FFD700;
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     `);
 
@@ -79,8 +79,8 @@ export class HUD {
 
     // Milestone
     this.milestoneEl = this.makeEl('div', `
-      position: absolute; top: 70px; left: 50%; transform: translateX(-50%);
-      font-size: 32px; font-weight: bold; color: #FFC107;
+      position: absolute; top: clamp(30px, 20%, 70px); left: 50%; transform: translateX(-50%);
+      font-size: clamp(20px, 5vw, 32px); font-weight: bold; color: #FFC107;
       text-shadow: 0 0 10px #FF9800, 0 2px 4px rgba(0,0,0,0.5);
       transition: opacity 0.3s, transform 0.3s;
       opacity: 0;

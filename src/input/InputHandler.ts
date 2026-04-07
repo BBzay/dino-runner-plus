@@ -79,20 +79,38 @@ export class InputHandler {
   }
 
   private touchStartY = 0;
+  private touchDuckTimer = 0;
 
   private onTouchStart(e: TouchEvent): void {
     e.preventDefault();
-    this.touchStartY = e.touches[0].clientY;
-    this.emit('jump');
+    const touch = e.touches[0];
+    this.touchStartY = touch.clientY;
+
+    // Bottom third of screen = duck, top two-thirds = jump
+    const target = touch.target as HTMLElement;
+    const rect = target.closest('#game-container')?.getBoundingClientRect();
+    if (rect && touch.clientY > rect.top + rect.height * 0.67) {
+      this.duckActive = true;
+      this.emit('duck');
+    } else {
+      this.emit('jump');
+    }
   }
 
   private onTouchEnd(e: TouchEvent): void {
     e.preventDefault();
+    // Release duck on any touch end
+    if (this.duckActive) {
+      this.duckActive = false;
+      return;
+    }
+    // Swipe down also ducks briefly (fallback gesture)
     const deltaY = e.changedTouches[0].clientY - this.touchStartY;
     if (deltaY > 30) {
       this.duckActive = true;
       this.emit('duck');
-      setTimeout(() => { this.duckActive = false; }, 300);
+      clearTimeout(this.touchDuckTimer);
+      this.touchDuckTimer = window.setTimeout(() => { this.duckActive = false; }, 300);
     }
   }
 }
